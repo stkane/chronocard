@@ -1,0 +1,15 @@
+.container {
+	height: 300px;
+	width: 1200px;
+	background-color: tomato;
+}
+
+.items {
+	float: left;
+	border: solid lightgrey;
+	height: 80px;
+	width: 80px;
+	margin: 10px 10px 10px 10px;
+	text-align: center;
+	background-color: lightblue;
+}

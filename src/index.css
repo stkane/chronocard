@@ -1,15 +1,38 @@
+
+
+body {
+	background-color: tomato;
+}
+
 .container {
 	height: 300px;
-	width: 1200px;
+	width: 1300px;
 	background-color: tomato;
+	margin: auto;
+	margin-top: 50px;
 }
 
 .items {
 	float: left;
-	border: solid lightgrey;
-	height: 80px;
-	width: 80px;
+	border: solid lightyellow;
+	height: 100px;
+	width: 100px;
 	margin: 10px 10px 10px 10px;
 	text-align: center;
+	border-radius: 5px;
 	background-color: lightblue;
+}
+
+.scoreboard {
+	text-align: center;
+	font-size: 80px;
+	color: lightgreen;
+}
+
+button {
+	margin: auto;
+	margin-left: 45%;
+	background-color: lightgreen;
+	height: 40px;
+	width: 80px;
 }

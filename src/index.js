@@ -7,70 +7,112 @@ var cardsArr = [];
 var yearsArr = [];
 var copyYearsArr = [];
 var answerArr = [];
+var counter = 0;
 
 var factsArr = [
   {
-  fact: "a",
-  date: 5
+  fact: "US Declaration of Independence",
+  date: 1776
   },
   {
-  fact: "b",
-  date: 10
+  fact: "Stephen's birth year (new Christmas)",
+  date: 1986
   },
   {
-  fact: "c",
-  date: 15
+  fact: "Jesus' birth year (old Christmas)",
+  date: -6
   },
   {
-  fact: "d",
-  date: 20
+  fact: "Plato dies",
+  date: -348
   },
   {
-  fact: "e",
-  date: 25
+  fact: "Hitler commits suicide",
+  date: 1945
   },
   {
-  fact: "f",
-  date: 30
+  fact: "Happy Days Cancelled",
+  date: 1984
   },
   {
-  fact: "g",
-  date: 35
+  fact: "Happy Days Originally Aired",
+  date: 1974
   },
   {
-  fact: "h",
-  date: 40
+  fact: "Borat Released",
+  date: 2006
   },
   {
-  fact: "i",
-  date: 45
+  fact: "Iran Hostage Crisis ends",
+  date: 1981
   },
   {
-  fact: "j",
-  date: 50
+  fact: "Lost in space TV show airs",
+  date: 1965
   },
   {
-  fact: "k",
-  date: 55
+  fact: "US gov't fakes moon landing",
+  date: 1969
   },
   {
-  fact: "l",
-  date: 60
+  fact: "Kennedy Assassinated by Illuminati",
+  date: 1963
   },
   {
-  fact: "m",
-  date: 65
+  fact: "Scientology founded",
+  date: 1954
   },
   {
-  fact: "n",
-  date: 70
+  fact: "Women get the vote (US)",
+  date: 1920
   }
 ];
+
+function PlaySound() {
+    var sound = document.getElementById("audio");
+    sound.play()
+}
 
 function NewGame(props) {
   return(
     <button className="buttons" onClick={props.onClick}>New Game</button>
     );
+}
+
+var levenshtein = function(a, b) {
+  if(a.length == 0) return b.length; 
+  if(b.length == 0) return a.length;
+  
+  if(a.length > b.length) {
+    var tmp = a;
+    a = b;
+    b = tmp;
+  }
+
+  var row = [];
+  // init the row
+  for(var i = 0; i <= a.length; i++){
+    row[i] = i;
+  }
+
+  for(var i = 1; i <= b.length; i++){
+    var prev = i;
+    for(var j = 1; j <= a.length; j++){
+      var val;
+      if(b[i-1] == a[j-1]){
+        val = row[j-1]; // match
+      } else {
+        val = Math.min(row[j-1] + 1, // substitution
+                       prev + 1,     // insertion
+                       row[j] + 1);  // deletion
+      }
+      row[j - 1] = prev;
+      prev = val;
+    }
+    row[a.length] = prev;
+  }
+
+  counter = row[a.length];
 }
 
 function dealTen(array) {
@@ -87,7 +129,7 @@ function dealTen(array) {
 
 function Score(props){
   return(
-    <div>Score: {props.winNum}</div>
+    <div className="scoreboard"># of moves until correct: {props.winNum}</div>
     );
 }
 
@@ -121,6 +163,7 @@ class SortableComponent extends Component {
     dealTen(factsArr);
     this.setState({items: cardsArr});
     this.setState({year: yearsArr});
+    PlaySound();
   }
 
   
@@ -132,13 +175,9 @@ class SortableComponent extends Component {
   }
 
   renderScore() {
-    var counter = 0;
-    for(let i = 0; i < 10; i++) {
-      if (this.state.year[i] != answerArr[i]) {
-        counter += 1;
-      }
-    }
-    
+    counter = 0;
+    levenshtein(answerArr, this.state.year);
+
     return (
       <Score winNum={counter}/>
       );
@@ -151,6 +190,7 @@ class SortableComponent extends Component {
       <SortableList items={this.state.items} year={this.state.year}axis="x" onSortEnd={this.onSortEnd} />
       {this.renderNewGame()}
       {this.renderScore()}
+      <audio id="audio" src="./pop.mp3"></audio>
       </div>
       );
   }

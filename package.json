@@ -2,7 +2,9 @@
   "name": "smallsortlist",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://stkane.github.io/chronocard2",
   "dependencies": {
+    "gh-pages": "^1.0.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-scripts": "1.0.11",
@@ -10,6 +12,8 @@
     "react-tiny-virtual-list": "^2.0.6"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",

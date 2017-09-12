@@ -1,38 +1,71 @@
-
+@import url('https://fonts.googleapis.com/css?family=Varela+Round');
+@import url('https://fonts.googleapis.com/css?family=Faster+One|Monoton|Press+Start+2P');
 
 body {
-	background-color: tomato;
+	background-color: white;
+	font-family: 'Varela Round', sans-serif;
+	border: 10px solid #333;
+	padding-bottom: 40px;
+}
+
+h1 {
+	font-family: 'Faster One', cursive;
+	font-size: 64px;
+	text-align: center;
+	color: #333;
 }
 
 .container {
-	height: 300px;
-	width: 1300px;
-	background-color: tomato;
+	height: 200px;
+	width: 1000px;
+	background-color: white;
 	margin: auto;
 	margin-top: 50px;
 }
 
 .items {
 	float: left;
-	border: solid lightyellow;
 	height: 100px;
 	width: 100px;
 	margin: 10px 10px 10px 10px;
 	text-align: center;
 	border-radius: 5px;
-	background-color: lightblue;
+	background-color: #333;
+	font-size: 1vw;
+	color: white;
+	padding-top: 2%;
+	padding-left: 0.25%;
+	padding-right: 0.25%;
+}
+
+.items:hover {
+	background-color: #e7040f;;
+}
+
+.items:target {
+	background-color: lightgreen;
 }
 
 .scoreboard {
 	text-align: center;
 	font-size: 80px;
-	color: lightgreen;
+	color: #333;
 }
+
 
 button {
 	margin: auto;
 	margin-left: 45%;
-	background-color: lightgreen;
-	height: 40px;
-	width: 80px;
+	background-color: #333;
+	border-radius: 30px;
+	border: none;
+	height: 50px;
+	width: 150px;
+	font-family: 'Varela Round', sans-serif;
+	font-size: 20px;
+	color: white;
+}
+
+button:hover {
+	background-color: #e7040f;;
 }

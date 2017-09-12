@@ -119,7 +119,7 @@ function dealTen(array) {
   cardsArr = [];
   yearsArr = [];
   array.sort(function(a, b){return 0.5 - Math.random()});
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 8; i++) {
     cardsArr[i] = array[i].fact;
     yearsArr[i] = array[i].date;
     copyYearsArr[i] = array[i].date;
@@ -149,8 +149,8 @@ const SortableList = SortableContainer(({items}) => {
 
 class SortableComponent extends Component {
   state = {
-    items: Array(10).fill(null),
-    year: Array(10).fill(null),
+    items: Array(8).fill(null),
+    year: Array(8).fill(null),
   };
   onSortEnd = ({oldIndex, newIndex}) => {
     this.setState({
@@ -186,11 +186,14 @@ class SortableComponent extends Component {
 
   render() {
     return (
-      <div>
-      <SortableList items={this.state.items} year={this.state.year}axis="x" onSortEnd={this.onSortEnd} />
-      {this.renderNewGame()}
-      {this.renderScore()}
-      <audio id="audio" src="./pop.mp3"></audio>
+      <div class="wrapper">
+        <h1>C h r o n o C a r d</h1>
+        
+          <SortableList items={this.state.items} year={this.state.year}axis="x" onSortEnd={this.onSortEnd} />
+          {this.renderNewGame()}
+          {this.renderScore()}
+          <audio id="audio" src="./pop.mp3"></audio>
+        
       </div>
       );
   }

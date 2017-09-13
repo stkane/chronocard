@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {render} from 'react-dom';
 import {SortableContainer, SortableElement, arrayMove} from 'react-sortable-hoc';
 import './index.css';
+import './style.js';
 
 var cardsArr = [];
 var yearsArr = [];
@@ -149,7 +150,7 @@ const SortableList = SortableContainer(({items}) => {
 
 class SortableComponent extends Component {
   state = {
-    items: Array(8).fill(null),
+    items: Array(8).fill(<h2>?</h2>),
     year: Array(8).fill(null),
   };
   onSortEnd = ({oldIndex, newIndex}) => {

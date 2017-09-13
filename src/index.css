@@ -15,6 +15,21 @@ h1 {
 	color: #333;
 }
 
+h2 {
+	font-size: 64px;
+	margin: auto;
+	/*animation-name: questionslide;
+	animation-duration: 1s;
+	animation-delay: 2s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: 1;*/
+}
+/*@keyframes questionslide {
+	0% {transform: rotate(0deg);}
+	100%{transform: rotate(360deg);}
+}*/
+
+
 .container {
 	height: 200px;
 	width: 1000px;
@@ -31,24 +46,19 @@ h1 {
 	text-align: center;
 	border-radius: 5px;
 	background-color: #333;
-	font-size: 1vw;
+	font-size: 14px;
 	color: white;
 	padding-top: 2%;
 	padding-left: 0.25%;
 	padding-right: 0.25%;
 }
 
-.items:hover {
-	background-color: #e7040f;;
-}
 
-.items:target {
-	background-color: lightgreen;
-}
 
 .scoreboard {
+	margin-top: 30px;
 	text-align: center;
-	font-size: 80px;
+	font-size: 50px;
 	color: #333;
 }
 
@@ -57,7 +67,6 @@ button {
 	margin: auto;
 	margin-left: 45%;
 	background-color: #333;
-	border-radius: 30px;
 	border: none;
 	height: 50px;
 	width: 150px;
@@ -67,5 +76,8 @@ button {
 }
 
 button:hover {
-	background-color: #e7040f;;
+	background-color: grey;
 }
+
+button:focus {outline:0;}
+

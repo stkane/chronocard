@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {render} from 'react-dom';
 import {SortableContainer, SortableElement, arrayMove} from 'react-sortable-hoc';
 import './index.css';
-import './style.js';
 
 var cardsArr = [];
 var yearsArr = [];

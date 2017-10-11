@@ -15,11 +15,11 @@ var factsArr = [
   date: 1776
   },
   {
-  fact: "Stephen's birth year (new Christmas)",
+  fact: "Stephen's birth year",
   date: 1986
   },
   {
-  fact: "Jesus' birth year (old Christmas)",
+  fact: "Jesus' birth year",
   date: -6
   },
   {
@@ -27,7 +27,7 @@ var factsArr = [
   date: -348
   },
   {
-  fact: "Hitler commits suicide",
+  fact: "End of WWII",
   date: 1945
   },
   {
@@ -51,11 +51,11 @@ var factsArr = [
   date: 1965
   },
   {
-  fact: "US gov't fakes moon landing",
+  fact: "US Lands on moon",
   date: 1969
   },
   {
-  fact: "Kennedy Assassinated by Illuminati",
+  fact: "Kennedy Assassinated",
   date: 1963
   },
   {

@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Varela+Round');
 @import url('https://fonts.googleapis.com/css?family=Faster+One|Monoton|Press+Start+2P');
+@import url('https://unpkg.com/tachyons@4.9.0/css/tachyons.min.css');
 
 body {
 	background-color: white;
@@ -29,6 +30,10 @@ h2 {
 	100%{transform: rotate(360deg);}
 }*/
 
+
+#deckselector {
+	width: 600px;
+}
 
 .container {
 	height: 200px;
@@ -65,7 +70,7 @@ h2 {
 
 button {
 	margin: auto;
-	margin-left: 45%;
+
 	background-color: #333;
 	border: none;
 	height: 50px;
@@ -80,4 +85,6 @@ button:hover {
 }
 
 button:focus {outline:0;}
+
+
 

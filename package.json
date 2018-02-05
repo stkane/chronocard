@@ -2,7 +2,7 @@
   "name": "smallsortlist",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://stkane.github.io/chronocard2",
+  "homepage": "https://stkane.github.io/chronocard",
   "dependencies": {
     "gh-pages": "^1.0.0",
     "react": "^15.6.1",

@@ -40,6 +40,8 @@ router.get('/', function(req, res) {
 	res.json({message: 'Welcome to our API!'});
 });
 
+
+//create new deck
 router.route('/newdeck')
 	.post(function(req, res) {
 		var deck = new Deck(); //new instance of a vehicle
@@ -47,7 +49,6 @@ router.route('/newdeck')
 		deck.author = req.body.author;
 		deck.subject = req.body.subject;
 		deck.cards = [];
-
 
 		deck.save(function(err){
 			if(err){
@@ -57,6 +58,7 @@ router.route('/newdeck')
 		});
 	});
 
+//update cards array with new card
 router.route('/:deck_id/cards')
 	.put(function(req, res) {
 		Deck.findById(req.params.deck_id, function(err, deck) {
@@ -75,8 +77,18 @@ router.route('/:deck_id/cards')
 		})
 	});
 
+//get deck by deckname
+router.route('/decks/deckname/:deckname')
+	.get(function(req, res) {
+		Deck.find({deckname:req.params.deckname}, function(err, deck) {
+			if (err) {
+				res.send(err);
+			}
+			res.json(deck);
+		});
+	});
 
-
+//get all decks
 router.route('/decks')
 	.get(function(req, res) {
 		Deck.find(function(err, deck) {
@@ -87,6 +99,7 @@ router.route('/decks')
 		});
 	});
 
+//get deck by id
 router.route('/decks/:deck_id')
 	.get(function(req, res){
 		Deck.findById(req.params.deck_id, function(err, deck) {

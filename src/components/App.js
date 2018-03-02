@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import '../index.css';
+import styled from 'tachyons-components'
+import Main from './Main';
+import Header from './Header';
 
 import DeckList from "../containers/deck-list";
 import NewDeck from "../containers/new_deck";
@@ -22,8 +24,10 @@ class App extends Component {
     return (
       <div>
         <h1>C h r o n o C a r d</h1>
-        <DeckList />
-        <NewDeck />
+        <Header />
+        <Main />
+
+
 
 
        

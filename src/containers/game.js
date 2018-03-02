@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import styled from 'tachyons-components'
 import {SortableContainer, SortableElement, arrayMove} from 'react-sortable-hoc';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -68,6 +68,8 @@ class Game extends Component {
     };
     //this.shuffle(this.state.facts, this.state.dates);
   }
+
+
 
   componentDidMount() {
     this.shuffle(this.state.facts, this.state.dates, this.state.answer);

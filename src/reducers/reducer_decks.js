@@ -10,7 +10,11 @@ export default function(state = [], action) {
 		case 'DELETE_DECK':
 		const deckId = action.payload.data;
 		console.log(deckId);
-		return state.filter(deck => deck._id !== deckId)
+		return state.filter(deck => deck._id !== deckId);
+		case 'FETCH_DECK_BY_DECKNAME':
+		const theName = action.payload.data;
+		console.log(theName);
+		return action.payload.data;
 	}
 
 	return state;

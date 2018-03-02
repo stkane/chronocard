@@ -1,5 +1,5 @@
 
-
+import { BrowserRouter, Route } from 'react-router-dom';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
@@ -13,6 +13,8 @@ const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
 
 ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
-    <App />
+  	<BrowserRouter>
+    	<Route path="/:filter?" component={App} />
+    </BrowserRouter>
   </Provider>
   , document.getElementById('root'));

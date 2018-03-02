@@ -3,59 +3,20 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { selectDeck } from '../actions/index';
 import { deleteDeck } from '../actions/index';
-import { fetchDecks } from '../actions/index';
-import { getDeckByDeckname } from '../actions/index';
-import axios from 'axios';
-
-
-
 
 class DeckBuilder extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			deckname: window.location.pathname.substr(1),
 			fact: '',
-			date: undefined,
-			deckId: 0
+			date: undefined
 		};
 	}
-
-	// componentWillMount() {
-	// 	var selected = this.props.getDeckByDeckname(this.state.deckname);
-	// 	console.log('mm ' + selected._id);
-	// }
-
-	// componentDidMount() {
-	// 	var temp = this.props.getDeckByDeckname(this.state.deckname);
-	// 	console.log('ho' + temp.deckname);
-
-	// }
-	componentWillMount(){
-		this.props.fetchDecks('decks');
-		
-	}
-
-	componentDidMount(){
-		console.log('deckbuilder mounted');
-		console.log(this.props.decks);
-
-		for(let i = 0; i < this.props.decks.length; i++) {
-			if(this.props.decks[i].deckname === this.state.deckname){
-				console.log('deck match: ')
-				console.log(this.props.decks[i]);
-			}
-		};
-
-	}
-
-
 
 	render() {
-
+		console.log('hi' + window.location.hostname);
 			return(
 				<div>
-					<h2 className='tc'>YO</h2>
 					<form>
 						<input
 							placeholder="card fact"
@@ -83,13 +44,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-	return bindActionCreators(Object.assign(
-		{}, 
-		{ selectDeck }, 
-		{ deleteDeck },
-		{ getDeckByDeckname },
-		{ fetchDecks }
-		), dispatch)
+	return bindActionCreators(Object.assign({}, { selectDeck }, { deleteDeck }), dispatch)
 }
 
 export default connect (mapStateToProps, mapDispatchToProps)(DeckBuilder);

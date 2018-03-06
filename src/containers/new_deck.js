@@ -24,9 +24,89 @@ class NewDeck extends Component {
 
 		this.onFormSubmit = this.onFormSubmit.bind(this);
 		this.onInputChange = this.onInputChange.bind(this);
-		this.cardCallback = this.cardCallback.bind(this);
+		//this.cardCallback = this.cardCallback.bind(this);
+
 
 	}
+
+	createCard() {
+		return this.state.cards.map((el, i) =>
+			<div key={i}>
+				<input type="text" name="fact" value={el.fact||''} onChange={this.handleCardChange.bind(this, i)} />
+				<input type="number" name="date" value={el.date||''} onChange={this.handleCardChangeTwo.bind(this, i)} />
+				<input type='button' value='remove' onClick={this.removeClick.bind(this, i)}/>
+			</div>
+		)
+	}
+
+	addClick(){
+    	this.setState(prevState => ({ cards: [...prevState.cards, '']}))
+  	}
+
+  	removeClick(i){
+	    let cards = [...this.state.cards];
+	    cards.splice(i,1);
+	    this.setState({ cards });
+  	}
+
+  	// handleFactChange(i, event){
+  	// 	let cards = [...this.state.cards];
+  	// 	cards[i] = event.target.value;
+  	// 	this.setState({
+  	// 		 cards: {fact: cards} 
+  	// 	});
+  	// 	console.log(this.state);
+  	// }
+
+	handleCardChange(i, event) {
+		let cards = [...this.state.cards];
+		const target = event.target;
+		const value = target.value;
+		if(target.name === 'fact') {var targetFact = target.value};
+
+		const name = target.name;
+		cards[i] = {
+			fact: targetFact,
+			date: this.state.cards[i].date
+		}
+		
+		this.setState({
+			cards: cards
+		})
+		console.log(this.state);
+	}
+
+	handleCardChangeTwo(i, event) {
+		let cards = [...this.state.cards];
+		const target = event.target;
+		const value = target.value;
+		if(target.name === 'date') {var targetDate = target.value};
+		const name = target.name;
+		cards[i] = {
+			fact: this.state.cards[i].fact,
+			date: targetDate
+		}
+		
+		this.setState({
+			cards: cards
+		})
+		console.log(this.state);
+	}
+
+	// handleCardChangeTwo(i, event) {
+	// 	let cards = [...this.state.cards];
+	// 	const target = event.target;
+	// 	const value = target.value;
+	// 	const name = target.name;
+	// 	cards[i] = {
+	// 		[name]: value
+	// 	}
+		
+	// 	this.setState({
+	// 		cards: cards
+	// 	})
+	// 	console.log(this.state);
+	// }
 
 	onInputChange(event) {
 		const target = event.target;
@@ -35,23 +115,27 @@ class NewDeck extends Component {
 		this.setState({
 			[name]: value
 		});
+
 		
 	}
 
-	cardCallback(dataFromCardChild){
-		this.setState(prevState =>({
-			cards: [...prevState.cards, dataFromCardChild]
-		}))
-		console.log(this.state.cards);
-	}
+	// cardCallback(dataFromCardChild){
+	// 	// this.setState(prevState =>({
+	// 	// 	cards: [...prevState.cards, dataFromCardChild]
+	// 	// }))
+	// 	console.log(dataFromCardChild);
+	// }
 
 	onFormSubmit(event) {
 		event.preventDefault();
+		//this.cardCallback();
 		this.props.createNewDeck(
 			this.state.deckname, 
 			this.state.author, 
 			this.state.subject
 			);
+		console.log(this.state);
+
 
 		//console.log( "state" + this.props.decks);
 		//var mydeck = this.props.getDeckByDeckname(this.state.deckname);
@@ -90,11 +174,14 @@ class NewDeck extends Component {
 						value={this.state.subject}
 						onChange={this.onInputChange}
 					/>
+					{this.createCard()}
+					<input type='button' value='add more' onClick={this.addClick.bind(this)}/>
 					<span>
 						<button type="submit">Submit</button>
 					</span>
+					
 				</form>
-				<CardBuilder deckCallback={this.cardCallback}/>
+				
 				{//this.state.fireRedirect && (
 					//make deckbuilder/${deckid} or maybe just conditionally renders
 					//the create deck builder componenent

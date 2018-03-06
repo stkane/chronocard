@@ -3,11 +3,18 @@ import React, { Component } from 'react';
 export class CardBuilder extends Component {
 	constructor(props) {
 		super(props);
+		this.onInputChange = this.onInputChange.bind(this);
+		this.onSubmit = this.onSubmit.bind(this);
 		this.state = {
 			fact: '',
 			date: undefined,
 		};
-		this.onInputChange = this.onInputChange.bind(this);
+		
+	}
+
+	onSubmit(){
+		this.props.deckCallback(this.state);
+		console.log("hi");
 	}
 
 	onInputChange(event) {
@@ -18,32 +25,24 @@ export class CardBuilder extends Component {
 			[name]: value
 		});
 		//this.props.deckCallback(this.state);
-		console.log(this.state);
-		
+		console.log(this.state);	
 	}
 
 	render() {
 		return(
 			<div>
-				<div>
-					<h2 className='tc'>YO</h2>
-					<form>
-						<input
-							placeholder="card fact"
-							name="fact"
-							value={this.state.fact}
-							onChange={this.onInputChange}
-							
-							
-						/>
-						<input
-							placeholder="fact year"
-							name="date"
-							value={this.state.date}
-							onChange={this.onInputChange}
-						/>
-					</form>
-				</div>
+				<input
+					placeholder="card fact"
+					name="fact"
+					value={this.state.fact}
+					onChange={this.onInputChange}	
+				/>
+				<input
+					placeholder="fact year"
+					name="date"
+					value={this.state.date}
+					onChange={this.onInputChange}
+				/>
 			</div>
 		);
 	}

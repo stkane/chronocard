@@ -48,7 +48,7 @@ router.route('/newdeck')
 		deck.deckname = req.body.deckname;
 		deck.author = req.body.author;
 		deck.subject = req.body.subject;
-		deck.cards = [];
+		deck.cards = req.body.cards;
 
 
 		deck.save(function(err){

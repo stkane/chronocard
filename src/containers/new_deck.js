@@ -132,7 +132,8 @@ class NewDeck extends Component {
 		this.props.createNewDeck(
 			this.state.deckname, 
 			this.state.author, 
-			this.state.subject
+			this.state.subject,
+			this.state.cards
 			);
 		console.log(this.state);
 
@@ -144,8 +145,11 @@ class NewDeck extends Component {
 		//deckObj = this.props.getDeckByDeckname(this.state.deckname);
 
 		this.setState({
-
-			fireRedirect: true
+			deckname: '',
+			author: '',
+			subject: '',
+			cards: [],
+			fireRedirect: false
 		});
 	}
 

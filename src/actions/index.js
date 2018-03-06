@@ -26,12 +26,13 @@ export function getDeckByDeckname(query) {
 	};
 }
 
-export function createNewDeck(deckname, author, subject) {
+export function createNewDeck(deckname, author, subject, cards) {
 	const url = `${ROOT_URL}newdeck`;
 	const newDeck = {
 		deckname: deckname,
 		author: author,
-		subject: subject
+		subject: subject,
+		cards: cards
 	}
 	const request = axios.post(url, newDeck);
 	console.log('new deck action called');

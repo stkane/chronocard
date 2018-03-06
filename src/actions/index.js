@@ -7,8 +7,7 @@ const ROOT_URL = `http://localhost:3030/api/`;
 export function fetchDecks(query) {
 	const url = `${ROOT_URL}${query}`;
 	const request = axios.get(url);
-	console.log("request:", request);
-
+	console.log('fetch decks is called');
 	return {
 		type: 'FETCH_DECKS',
 		payload: request
@@ -16,10 +15,11 @@ export function fetchDecks(query) {
 
 }
 
-export function getDeckByDeckname(deckname) {
-	const url = `${ROOT_URL}decks/deckname/${deckname}`;
+export function getDeckByDeckname(query) {
+	const url = `${ROOT_URL}decks/deckname/${query}`;
 	const request = axios.get(url);
-	console.log(url);
+	console.log('this is the url ' + url);
+	console.log(request)
 	return {
 		type: 'FETCH_DECK_BY_DECKNAME',
 		payload: request
@@ -34,6 +34,7 @@ export function createNewDeck(deckname, author, subject) {
 		subject: subject
 	}
 	const request = axios.post(url, newDeck);
+	console.log('new deck action called');
 	return {
 		type: 'CREATE_NEW_DECK',
 		payload: request

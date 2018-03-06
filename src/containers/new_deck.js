@@ -8,6 +8,7 @@ import styled from 'tachyons-components'
 import { Redirect } from 'react-router';
 import { fetchDecks } from '../actions/index';
 import { DeckBuilder } from './deck_builder';
+import { CardBuilder } from './card_builder';
 
 
 class NewDeck extends Component {
@@ -17,11 +18,14 @@ class NewDeck extends Component {
 			deckname: '',
 			author: '',
 			subject: '',
+			cards: [],
 			fireRedirect: false
 		};
 
 		this.onFormSubmit = this.onFormSubmit.bind(this);
 		this.onInputChange = this.onInputChange.bind(this);
+		this.cardCallback = this.cardCallback.bind(this);
+
 	}
 
 	onInputChange(event) {
@@ -34,6 +38,13 @@ class NewDeck extends Component {
 		
 	}
 
+	cardCallback(dataFromCardChild){
+		this.setState(prevState =>({
+			cards: [...prevState.cards, dataFromCardChild]
+		}))
+		console.log(this.state.cards);
+	}
+
 	onFormSubmit(event) {
 		event.preventDefault();
 		this.props.createNewDeck(
@@ -42,6 +53,10 @@ class NewDeck extends Component {
 			this.state.subject
 			);
 
+		//console.log( "state" + this.props.decks);
+		//var mydeck = this.props.getDeckByDeckname(this.state.deckname);
+		//console.log(this.props.editDeck);
+		//this.props.getDeckByDeckname(this.state.deckname);
 		//deckObj = this.props.getDeckByDeckname(this.state.deckname);
 
 		this.setState({
@@ -51,9 +66,9 @@ class NewDeck extends Component {
 	}
 
 	render() {
-		const { from } = this.props.location.state || '/';
-		let redirectRoute = `/${this.state.deckname}/cards`;
-		const { fireRedirect } = this.state.fireRedirect;
+		//const { from } = this.props.location.state || '/';
+		//let redirectRoute = `/${this.state.deckname}`;
+		//const { fireRedirect } = this.state.fireRedirect;
 		return(
 			<div>
 				<form onSubmit={this.onFormSubmit}>
@@ -79,11 +94,13 @@ class NewDeck extends Component {
 						<button type="submit">Submit</button>
 					</span>
 				</form>
-				{this.state.fireRedirect && (
+				<CardBuilder deckCallback={this.cardCallback}/>
+				{//this.state.fireRedirect && (
 					//make deckbuilder/${deckid} or maybe just conditionally renders
 					//the create deck builder componenent
-					<Redirect from='/newdeck' to={redirectRoute} />
-				)}
+					//<Redirect from='/newdeck' to={redirectRoute} />
+				//)
+			}
 			</div>
 		);
 	}
@@ -92,7 +109,8 @@ class NewDeck extends Component {
 function mapStateToProps(state) {
 	return {
 		decks: state.decks,
-		deck: state.activeDeck
+		deck: state.activeDeck,
+		editDeck: state.editDeck
 	};
 }
 
@@ -106,4 +124,4 @@ function mapDispatchToProps(dispatch) {
 		), dispatch);
 }
 
-export default connect(null, mapDispatchToProps)(NewDeck);
+export default connect(mapStateToProps, mapDispatchToProps)(NewDeck);

@@ -50,12 +50,14 @@ router.route('/newdeck')
 		deck.subject = req.body.subject;
 		deck.cards = [];
 
+
 		deck.save(function(err){
 			if(err){
 				res.send(err);
 			}
 			res.json(deck);
 		});
+		console.log('deck added to db');
 	});
 
 //update cards array with new card
@@ -80,10 +82,11 @@ router.route('/:deck_id/cards')
 //get deck by deckname
 router.route('/decks/deckname/:deckname')
 	.get(function(req, res) {
-		Deck.find({deckname:req.params.deckname}, function(err, deck) {
-			if (err) {
+		Deck.findOne({'deckname':req.params.deckname}, function(err, deck) {
+			if(err) {
 				res.send(err);
 			}
+			console.log(deck);
 			res.json(deck);
 		});
 	});
@@ -148,17 +151,3 @@ router.route('/decks/:deck_id')
 app.listen(port);
 
 console.log('server listening on port ' + port);
-
-
-
-
-
-
-
-
-
-
-
-
-
-

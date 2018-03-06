@@ -12,9 +12,10 @@ class DeckList extends Component {
 	
 
 	renderList() {
+
 		if(!this.props.deck) {
 			return this.props.decks.map((deck) => {
-				console.log(this.props.decks);
+				//console.log(this.props.decks);
 				return (
 					<div>
 						<button

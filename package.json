@@ -7,6 +7,7 @@
     "axios": "^0.17.1",
     "body-parser": "^1.18.2",
     "cors": "^2.8.4",
+    "dotenv": "^5.0.1",
     "express": "^4.16.2",
     "gh-pages": "^1.0.0",
     "mongoose": "^5.0.4",
@@ -21,6 +22,9 @@
     "redux-promise": "^0.5.3",
     "tachyons-components": "^1.0.0-1"
   },
+  "engines": {
+    "node": "6.10.2"
+  },
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
@@ -28,8 +32,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "server": "nodemon ./src/server/server.js",
-    "client": "node ./index.js"
+    "server": "nodemon ./server.js",
+    "client": "node ./client/src/index.js",
+    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -39,8 +44,9 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "concurrently": "^3.5.1",
+    "react-hot-loader": "^4.0.0",
     "tachyons": "^4.9.0",
     "webpack": "^3.10.0"
   },
-  "proxy": "http://localhost:3030"
+  "proxy": "http://localhost:8000"
 }

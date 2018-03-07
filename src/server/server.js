@@ -24,6 +24,7 @@ var router = express.Router();
 //routes will all be prefixed with /api
 app.use('/api', router);
 
+
 //middleware
 //middleware is useful for validations, we can log
 //things from here or stop the request from continuing
@@ -44,20 +45,28 @@ router.get('/', function(req, res) {
 //create new deck
 router.route('/newdeck')
 	.post(function(req, res) {
-		var deck = new Deck(); //new instance of a vehicle
-		deck.deckname = req.body.deckname;
-		deck.author = req.body.author;
-		deck.subject = req.body.subject;
-		deck.cards = req.body.cards;
+		Deck.count({}, function(err, count){
+			if(count > 10) {
+				return 'err'
+			} else {
+			var deck = new Deck(); //new instance of a vehicle
+			deck.deckname = req.body.deckname;
+			deck.author = req.body.author;
+			deck.subject = req.body.subject;
+			deck.cards = req.body.cards;
 
 
-		deck.save(function(err){
-			if(err){
-				res.send(err);
+			deck.save(function(err){
+				if(err){
+					res.send(err);
+				}
+				res.json(deck);
+			});
+			console.log('deck added to db');
+			console.log(count);
 			}
-			res.json(deck);
-		});
-		console.log('deck added to db');
+		})
+		
 	});
 
 //update cards array with new card

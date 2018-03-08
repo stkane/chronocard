@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 //things added for deployment
-app.use(express.static(path.join(__dirname, "client", "build")));
+app.use(express.static(path.join(__dirname, "build")));
 
 
 
@@ -168,7 +168,7 @@ router.route('/decks/:deck_id')
 
 //added for deployment
 app.get("*", (req, res) => {  
-    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+    res.sendFile(path.join(__dirname, "build", "index.html"));
 });
 
 

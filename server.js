@@ -8,7 +8,7 @@ var cors = require('cors');
 //added for deployment:
 const path = require('path');
 
-require('dotenv').config();
+//require('dotenv').config();
 
 //configure bodyparser, grabs data from body of post
 app.use(cors());

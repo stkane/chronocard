@@ -36,15 +36,9 @@
     "node": "6.10.2"
   },
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "start": "concurrently \"npm run server\" \"react-scripts start\"",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
+    "start": "npm run server",
     "server": "node ./server.js",
-    "client": "node ./src/index.js",
-    "heroku-postbuild": "npm install --only=dev && npm install && npm run build"
+    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -58,6 +52,5 @@
     "tachyons": "^4.9.0",
     "webpack": "^3.10.0",
     "dotenv": "^5.0.1"
-  },
-  "proxy": "http://localhost:5000"
+  }
 }

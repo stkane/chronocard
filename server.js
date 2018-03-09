@@ -16,15 +16,15 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 //things added for deployment
-app.use(express.static(path.join(__dirname, "build")));
+app.use(express.static(path.join(__dirname, "client", "build")));
 
 
 
 //set up port for server to listen on
-var port = process.env.PORT || 5000;
+var port = process.env.PORT || 8000;
 
 //connet to DB
-var dbConnection = 'mongodb://localhost:27017/test_api_chrono' || process.env.MONGODB_URI;
+var dbConnection = process.env.MONGODB_URI || 'mongodb://localhost:27017/test_api_chrono';
 mongoose.connect(dbConnection);
 
 var router = express.Router();
@@ -168,7 +168,7 @@ router.route('/decks/:deck_id')
 
 //added for deployment
 app.get("*", (req, res) => {  
-    res.sendFile(path.join(__dirname, "build", "index.html"));
+    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 });
 
 

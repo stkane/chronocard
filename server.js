@@ -21,7 +21,7 @@ app.use(express.static(path.join(__dirname, "client", "build")));
 
 
 //set up port for server to listen on
-var port = process.env.PORT || 5000;
+var port = process.env.PORT || 8000;
 
 //connet to DB
 var dbConnection = process.env.MONGODB_URI || 'mongodb://localhost:27017/test_api_chrono';

@@ -33,7 +33,8 @@
     "webpack": "^3.10.0"
   },
   "engines": {
-    "node": "6.10.2"
+    "node": "6.10.2",
+    "npm": "5.6.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -54,5 +55,5 @@
     "webpack": "^3.10.0",
     "dotenv": "^5.0.1"
   },
-  "proxy": "http://localhost:5000"
+  "proxy": "http://localhost:8000"
 }

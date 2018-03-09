@@ -8,7 +8,7 @@ var cors = require('cors');
 //added for deployment:
 const path = require('path');
 
-//require('dotenv').config();
+require('dotenv').config();
 
 //configure bodyparser, grabs data from body of post
 app.use(cors());
@@ -21,10 +21,10 @@ app.use(express.static(path.join(__dirname, "build")));
 
 
 //set up port for server to listen on
-var port = process.env.REACT_APP_DEV_PORT;
+var port = process.env.PORT || 5000;
 
 //connet to DB
-var dbConnection = process.env.MONGODB_URI || process.env.REACT_APP_DEV_DBCONNECTION;
+var dbConnection = 'mongodb://localhost:27017/test_api_chrono' || process.env.MONGODB_URI;
 mongoose.connect(dbConnection);
 
 var router = express.Router();

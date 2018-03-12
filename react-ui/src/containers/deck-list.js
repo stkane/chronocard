@@ -17,7 +17,7 @@ class DeckList extends Component {
 			return this.props.decks.map((deck) => {
 				//console.log(this.props.decks);
 				return (
-					<div>
+					<div className="tc db">
 						<button
 							key={deck.deckname}
 							onClick={() => this.props.selectDeck(deck)}  

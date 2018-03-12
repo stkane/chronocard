@@ -55,7 +55,7 @@ class DeckBuilder extends Component {
 
 			return(
 				<div>
-					<h2 className='tc'>YO</h2>
+					
 					<form>
 						<input
 							placeholder="card fact"

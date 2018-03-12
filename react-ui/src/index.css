@@ -73,10 +73,10 @@ button {
 
 	background-color: #333;
 	border: none;
-	height: 50px;
-	width: 150px;
+	height: 100px;
+	width: 200px;
 	font-family: 'Varela Round', sans-serif;
-	font-size: 20px;
+	font-size: 24px;
 	color: white;
 }
 
@@ -85,6 +85,3 @@ button:hover {
 }
 
 button:focus {outline:0;}
-
-
-

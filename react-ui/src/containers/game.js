@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styled from 'tachyons-components'
+import styled from 'tachyons-components';
 import {SortableContainer, SortableElement, arrayMove} from 'react-sortable-hoc';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -114,7 +114,9 @@ class Game extends Component {
 
   giveUp() {
   	return (
-  		<button onClick={() => this.props.deselectDeck()}>Give up</button>
+      <div className="tc">
+  		  <button onClick={() => this.props.deselectDeck()}>Give up</button>
+      </div>
   	);
   }
 
@@ -133,7 +135,7 @@ class Game extends Component {
 			<div>
 				<SortableList items={this.state.facts} year={this.state.dates} axis="x" onSortEnd={this.onSortEnd} />
 				{this.giveUp()}
-				{this.renderScore()}
+				<h3 className="tc">Minimum moves until cards are in correct order: {this.renderScore()}</h3>
 
 			</div>
 		);

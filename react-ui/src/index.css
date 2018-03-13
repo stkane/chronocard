@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css?family=Varela+Round');
+@import url('https://fonts.googleapis.com/css?family=Faster+One|Monoton|Press+Start+2P');
+@import url('https://unpkg.com/tachyons@4.9.0/css/tachyons.min.css');
+
+body {
+	background-color: white;
+	font-family: 'Varela Round', sans-serif;
+	border: 10px solid #333;
+	padding-bottom: 40px;
+}
+
+h1 {
+	font-family: 'Faster One', cursive;
+	font-size: 64px;
+	text-align: center;
+	color: #333;
+}
+
+h2 {
+	font-size: 64px;
+	margin: auto;
+	/*animation-name: questionslide;
+	animation-duration: 1s;
+	animation-delay: 2s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: 1;*/
+}
+/*@keyframes questionslide {
+	0% {transform: rotate(0deg);}
+	100%{transform: rotate(360deg);}
+}*/
+
+
+#deckselector {
+	width: 600px;
+}
+
+.container {
+	height: 200px;
+	width: 1000px;
+	background-color: white;
+	margin: auto;
+	margin-top: 50px;
+}
+
+.items {
+	float: left;
+	height: 100px;
+	width: 100px;
+	margin: 10px 10px 10px 10px;
+	text-align: center;
+	border-radius: 5px;
+	background-color: #333;
+	font-size: 14px;
+	color: white;
+	padding-top: 2%;
+	padding-left: 0.25%;
+	padding-right: 0.25%;
+}
+
+
+
+.scoreboard {
+	margin-top: 30px;
+	text-align: center;
+	font-size: 50px;
+	color: #333;
+}
+
+
+button {
+	margin: auto;
+
+	background-color: #333;
+	border: none;
+	height: 100px;
+	width: 200px;
+	font-family: 'Varela Round', sans-serif;
+	font-size: 24px;
+	color: white;
+}
+
+button:hover {
+	background-color: grey;
+}
+
+button:focus {outline:0;}

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styled from 'tachyons-components'
 import Main from './Main';
-import Header from './Header';
+import Header from '../containers/Header';
 
 import DeckList from "../containers/deck-list";
 import NewDeck from "../containers/new_deck";

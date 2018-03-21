@@ -11,7 +11,7 @@ const Main = () => (
 
       <Route  path='/decklist' component={DeckList}/>
       <Route  path='/newdeck' component={NewDeck}/>
-      <Route  path='/:name?' component={DeckBuilder} />
+
     </Switch>
   </main>
 )

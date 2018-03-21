@@ -115,7 +115,7 @@ class Game extends Component {
   giveUp() {
   	return (
       <div className="tc">
-  		  <button onClick={() => this.props.deselectDeck()}>Give up</button>
+  		  <button className="button" onClick={() => this.props.deselectDeck()}>Give up</button>
       </div>
   	);
   }

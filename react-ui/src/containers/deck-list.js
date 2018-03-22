@@ -21,13 +21,14 @@ class DeckList extends Component {
 						<button
 							key={deck.deckname}
 							onClick={() => this.props.selectDeck(deck)}  
-							className="mt3 ml2 mr2 tc">
+							className="button mt3 ml2 mr2 tc">
 							{deck.deckname}
 						</button>
 						<button
 							key={deck._id}
 							value={deck._id}
 							onClick={() => this.props.deleteDeck(deck._id)}
+							className="button"
 						>Delete
 						</button>
 					</div>
@@ -42,7 +43,7 @@ class DeckList extends Component {
 	renderGame(){
 		if (!this.props.deck) {
 			return (
-				<div>please select</div>
+				<div></div>
 			);
 		}
 		else{

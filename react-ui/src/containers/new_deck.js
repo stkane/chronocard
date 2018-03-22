@@ -32,9 +32,15 @@ class NewDeck extends Component {
 	createCard() {
 		return this.state.cards.map((el, i) =>
 			<div key={i}>
-				<input type="text" name="fact" value={el.fact||''} onChange={this.handleCardChange.bind(this, i)} />
-				<input type="number" name="date" value={el.date||''} onChange={this.handleCardChangeTwo.bind(this, i)} />
-				<input type='button' value='remove' onClick={this.removeClick.bind(this, i)}/>
+				<div className='dib measure'>
+					<input type="text" className="input-reset ba b--black-20 pa2 mb2 db w-100" name="fact" value={el.fact||''} onChange={this.handleCardChange.bind(this, i)} />
+				</div>
+				<div className='ml4 dib measure'>
+					<input type="number" className="input-reset ba b--black-20 pa2 mb2 db w-100" name="date" value={el.date||''} onChange={this.handleCardChangeTwo.bind(this, i)} />
+				</div>
+				<div className='ml4 dib measure'>
+					<input type='button'  value='remove' onClick={this.removeClick.bind(this, i)}/>
+				</div>
 			</div>
 		)
 	}
@@ -158,40 +164,35 @@ class NewDeck extends Component {
 		//let redirectRoute = `/${this.state.deckname}`;
 		//const { fireRedirect } = this.state.fireRedirect;
 		return(
-			<div>
-				<form onSubmit={this.onFormSubmit}>
-					<input
-						placeholder="deck title"
-						name="deckname"
-						value={this.state.deckname}
-						onChange={this.onInputChange}
-					/>
-					<input
-						placeholder="deck author"
-						name="author"
-						value={this.state.author}
-						onChange={this.onInputChange}
-					/>
-					<input
-						placeholder="deck subject"
-						name="subject"
-						value={this.state.subject}
-						onChange={this.onInputChange}
-					/>
+			<div className="tc">
+				<form className="pa4 black-80" onSubmit={this.onFormSubmit}>
+					<div className="db">
+						<div className="dib measure">
+							<label for="deckname-label" className="f6 b db mb2">Deck Title <span class="normal black-60"></span></label>
+							<input name="deckname" value={this.state.deckname} onChange={this.onInputChange} className="input-reset ba b--black-20 pa2 mb2 db w-100" type="text" aria-describedby="name-desc"/>
+							
+						</div>
+						<div className="ml4 dib measure">
+							<label for="author-label" className="f6 b db mb2">Author <span class="normal black-60"></span></label>
+							<input name="author" value={this.state.author} onChange={this.onInputChange} className="input-reset ba b--black-20 pa2 mb2 db w-100" type="text" aria-describedby="name-desc"/>
+							
+						</div>
+						<div className="ml4 dib measure">
+							<label for="subject-label" className="f6 b db mb2">Subject <span class="normal black-60"></span></label>
+							<input name="subject" value={this.state.subject} onChange={this.onInputChange} className="input-reset ba b--black-20 pa2 mb2 db w-100" type="text" aria-describedby="name-desc"/>
+						</div>
+					</div>
+
+
 					{this.createCard()}
-					<input type='button' value='add more' onClick={this.addClick.bind(this)}/>
-					<span>
-						<button type="submit">Submit</button>
+					<span className="dib">
+						<input className="button mr3" type='button' value='add card' onClick={this.addClick.bind(this)}/>
+					
+						<button className="ml3 button" type="submit">Submit</button>
 					</span>
 					
 				</form>
 				
-				{//this.state.fireRedirect && (
-					//make deckbuilder/${deckid} or maybe just conditionally renders
-					//the create deck builder componenent
-					//<Redirect from='/newdeck' to={redirectRoute} />
-				//)
-			}
 			</div>
 		);
 	}

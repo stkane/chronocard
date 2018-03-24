@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import styled from 'tachyons-components'
 import Main from './Main';
 import Header from '../containers/Header';
+import animate from 'animate.css';
+
 
 import DeckList from "../containers/deck-list";
 import NewDeck from "../containers/new_deck";
@@ -74,7 +76,7 @@ const SortableItem = SortableElement(({value}) =>
 
 const SortableList = SortableContainer(({items, year}) => {
   return (
-    <div className="title-container">
+    <div className="title-container ">
       {items.map((value, index) => (
         <SortableItem key={`item-${index}`} year={year} index={index} value={value} />
       ))}
@@ -92,6 +94,33 @@ export default class Home extends Component {
     };
 
   }
+
+  // componentDidMount() {
+  //   var arr = document.querySelectorAll('.title');
+  //   console.log(arr);
+  //   [].forEach.call(arr, function(el){
+  //     //el.classList.remove('animated');
+  //     el.classList.add('bounceIn');
+  //     el.classList.add('animated');
+  //   });
+  // }
+  // arr = document.querySelectorAll('.title');
+
+  // animationEnd = (function(el) {
+  //   var animations = {
+  //     animation: 'animationend',
+  //     OAnimation: 'oAnimationEnd',
+  //     MozAnimation: 'mozAnimationEnd',
+  //     WebkitAnimation: 'webkitAnimationEnd'
+  //   };
+  //   for (var t in animations) {
+  //     if (el.style[t] !== undefined) {
+  //       return animations[t];
+  //     }
+  //   }
+  // });
+
+
 
   onSortEnd = ({oldIndex, newIndex}) => {
     this.setState({

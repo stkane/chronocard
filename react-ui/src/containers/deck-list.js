@@ -55,6 +55,7 @@ class DeckList extends Component {
 	render() {
 		return (
 			<div>
+			
 				{this.renderList()}
 
 				{this.renderGame()}

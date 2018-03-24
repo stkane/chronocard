@@ -23,7 +23,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <h1>C h r o n o C a r d</h1>
+
         <Header />
         <Main />
 

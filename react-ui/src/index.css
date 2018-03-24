@@ -3,17 +3,17 @@
 @import url('https://unpkg.com/tachyons@4.9.0/css/tachyons.min.css');
 
 body {
-	background-color: white;
+	background-color:#fff;
 	font-family: 'Varela Round', sans-serif;
 
 	padding-bottom: 40px;
 }
 
 h1 {
-	font-family: 'Faster One', cursive;
-	font-size: 64px;
+	font-family: 'Helvetica';
+	font-size: 80px;
 	text-align: center;
-	color: #333;
+	color: #fff;
 }
 
 h2 {
@@ -43,6 +43,14 @@ h2 {
 	margin-top: 50px;
 }
 
+.title-container {
+	height: 200px;
+	width: 1500px;
+
+	margin: auto;
+	margin-top: 10%;
+}
+
 .items {
 	float: left;
 	height: 100px;
@@ -67,7 +75,9 @@ h2 {
 	color: #333;
 }
 
-
+.navbackground {
+	background-color:#333;
+}
 .button {
 
 	background-color: #333;
@@ -77,6 +87,21 @@ h2 {
 	font-family: 'Varela Round', sans-serif;
 	font-size: 24px;
 	color: white;
+}
+
+.title {
+	float: left;
+
+	font-family: "Helvetica";
+	margin: 20px;
+	text-align: center;
+	border-radius: 5px;
+	font-weight: 800;
+	font-size: 130px;
+	color: #333;
+	padding-top: 2%;
+	padding-left: 0.25%;
+	padding-right: 0.25%;
 }
 
 button:hover {

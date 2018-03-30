@@ -3,6 +3,7 @@ import styled from 'tachyons-components'
 import Main from './Main';
 import Header from '../containers/Header';
 import animate from 'animate.css';
+import { Link } from 'react-router-dom';
 
 
 import DeckList from "../containers/deck-list";
@@ -132,6 +133,12 @@ export default class Home extends Component {
     return (
       <div >
          <SortableList items={this.state.facts} year={this.state.dates} axis="x" onSortEnd={this.onSortEnd} />
+         <div className="container">
+          <div className="centered text-center">
+            <Link className="clearfix btn btn-play" to="/decklist">Play</Link>
+            <Link className="clearfix btn btn-newdeck" to="/newdeck">Create a New Deck</Link>
+          </div>
+         </div>
       </div>
     );
   }

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import styled from 'tachyons-components'
+import styled from 'tachyons-components';
+import { Link } from 'react-router-dom';
 
 import { selectDeck } from '../actions/index';
 import { deleteDeck } from '../actions/index';
@@ -17,20 +18,15 @@ class DeckList extends Component {
 			return this.props.decks.map((deck) => {
 				//console.log(this.props.decks);
 				return (
-					<div className="tc db">
+					
+					<div className="col-md-3 ">
 						<button
 							key={deck.deckname}
 							onClick={() => this.props.selectDeck(deck)}  
-							className="button mt3 ml2 mr2 tc">
+							className="decklist-btn ">
 							{deck.deckname}
 						</button>
-						<button
-							key={deck._id}
-							value={deck._id}
-							onClick={() => this.props.deleteDeck(deck._id)}
-							className="button"
-						>Delete
-						</button>
+
 					</div>
 				);
 			});
@@ -55,8 +51,15 @@ class DeckList extends Component {
 	render() {
 		return (
 			<div>
-			
-				{this.renderList()}
+				<h3 className="text-center">Pick a deck, any deck</h3>
+				<div className="row decklist-container">
+					<div className="col-md-3">
+						<Link onClick={() => this.props.deselectDeck()} to='/newdeck' className="decklist-newdeck-btn">
+							+
+						</Link>
+					</div>
+					{this.renderList()}
+				</div>
 
 				{this.renderGame()}
 			</div>

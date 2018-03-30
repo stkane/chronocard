@@ -18,7 +18,7 @@ class DeckList extends Component {
 			return this.props.decks.map((deck) => {
 				//console.log(this.props.decks);
 				return (
-					
+
 					<div className="col-md-3 ">
 						<button
 							key={deck.deckname}
@@ -35,7 +35,17 @@ class DeckList extends Component {
 			return <div></div>
 		}
 	}
-
+	renderNewDeck() {
+		if(!this.props.deck) {
+			return (
+				<div className="col-md-3">
+					<Link onClick={() => this.props.deselectDeck()} to='/newdeck' className="decklist-newdeck-btn">
+						+
+					</Link>
+				</div>
+			);
+		}
+	}
 	renderGame(){
 		if (!this.props.deck) {
 			return (
@@ -53,12 +63,9 @@ class DeckList extends Component {
 			<div>
 				<h3 className="text-center">Pick a deck, any deck</h3>
 				<div className="row decklist-container">
-					<div className="col-md-3">
-						<Link onClick={() => this.props.deselectDeck()} to='/newdeck' className="decklist-newdeck-btn">
-							+
-						</Link>
-					</div>
+					{this.renderNewDeck()}
 					{this.renderList()}
+					
 				</div>
 
 				{this.renderGame()}

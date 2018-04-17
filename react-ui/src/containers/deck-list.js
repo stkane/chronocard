@@ -7,6 +7,7 @@ import { selectDeck } from '../actions/index';
 import { deleteDeck } from '../actions/index';
 import { bindActionCreators } from 'redux';
 import Game from './game';
+import { Button } from 'reactstrap';
 
 
 class DeckList extends Component {

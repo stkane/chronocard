@@ -40,9 +40,11 @@ class DeckList extends Component {
 		if(!this.props.deck) {
 			return (
 				<div className="col-md-3">
+
 					<Link onClick={() => this.props.deselectDeck()} to='/newdeck' className="decklist-newdeck-btn">
 						+
 					</Link>
+
 				</div>
 			);
 		}

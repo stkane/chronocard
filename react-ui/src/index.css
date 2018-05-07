@@ -217,11 +217,16 @@ h2 {
 	border-radius: 8px;
 	border: 4px dashed lightgrey;
 	margin: 10px;
-	font-size: 80px;
+	font-size: 60px;
 	display: inline-block;
-	vertical-align: middle;
+	vertical-align: top;
+	text-align: center;
+}
 
-
+.decklist-newdeck-btn:hover {
+	border: 4px dashed #333;
+	color: #333;
+	text-decoration: none;
 
 }
 
